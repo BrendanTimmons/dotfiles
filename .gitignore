@@ -1,2 +1,7 @@
-perform-cli
-configstore
+# Ignore everything by default.
+*
+
+!nvim/*
+!git/*
+!thefuck/*
+!wezterm/*
