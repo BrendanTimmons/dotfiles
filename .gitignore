@@ -1,7 +1,14 @@
 # Ignore everything by default.
 *
 
-!nvim/*
+!git
 !git/*
+
+!nvim
+!nvim/*
+
+!thefuck
 !thefuck/*
+
+!wezterm
 !wezterm/*
