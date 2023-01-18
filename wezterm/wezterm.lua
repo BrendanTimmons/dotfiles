@@ -207,6 +207,7 @@ wezterm.on("update-right-status", function(window)
 end)
 
 return {
+  color_scheme = "Catppuccin Mocha",
   font = wezterm.font('FiraCode Nerd Font', {}),
   font_size = 14,
 	max_fps = 120,
@@ -327,15 +328,15 @@ return {
 				SplitVertical = { domain = "CurrentPaneDomain" },
 			}),
 		},
-		{
-			mods = "ALT|SHIFT",
-			key = [[_]],
-			action = act({
-				top_level = true,
-				direction = "Down",
-				size = { Percent = 50 },
-			}),
-		},
+		-- {
+		-- 	mods = "ALT|SHIFT",
+		-- 	key = [[_]],
+		-- 	action = act({
+		-- 		top_level = true,
+		-- 		direction = "Down",
+		-- 		size = { Percent = 50 },
+		-- 	}),
+		-- },
 		{
 			key = "n",
 			mods = "ALT",
