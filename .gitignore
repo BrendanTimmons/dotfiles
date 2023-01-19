@@ -1,14 +1,15 @@
 # Ignore everything by default.
 *
+.DS_Store
 
 !git
-!git/*
+!git/**
 
 !nvim
-!nvim/*
+!nvim/**
 
 !thefuck
-!thefuck/*
+!thefuck/**
 
 !wezterm
-!wezterm/*
+!wezterm/**
