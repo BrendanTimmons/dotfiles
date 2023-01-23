@@ -70,7 +70,7 @@ function M.config()
         v = { "j", "k" },
       },
     }
-  }) 
+  })
 
   local opts = {
     mode = "n", -- NORMAL mode
@@ -82,7 +82,6 @@ function M.config()
   }
 
   local mappings = {
-    ["/"] = {"<cmd>silent %!npx prettier --ignore-path ~/.config/.prettierignore --stdin-filepath %<CR>", "Prettier force manual format"},
     ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
     ["b"] = {
       "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
@@ -101,36 +100,20 @@ function M.config()
     ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
     ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
 
-    p = {
-      name = "Packer",
-      c = { "<cmd>PackerCompile<cr>", "Compile" },
-      i = { "<cmd>PackerInstall<cr>", "Install" },
-      s = { "<cmd>PackerSync<cr>", "Sync" },
-      S = { "<cmd>PackerStatus<cr>", "Status" },
-      u = { "<cmd>PackerUpdate<cr>", "Update" },
+    ["p"] = {
+      name = "Goto Preview",
+      d = {"<cmd>lua require('goto-preview').goto_preview_definition()<CR>", "Definition"},
+      t = {"<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>", "Type Definition"},
+      i = {"<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", "Implementation"},
+      r = {"<cmd>lua require('goto-preview').goto_preview_references()<CR>", "References"},
+      x = {"<cmd>lua require('goto-preview').close_all_win()<CR>", "Close all windows"},
     },
 
     g = {
       name = "Git",
-      g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-      j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-      k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-      l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-      p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-      r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-      R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-      s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-      u = {
-        "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-        "Undo Stage Hunk",
-      },
       o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
       b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
       c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-      d = {
-        "<cmd>Gitsigns diffthis HEAD<cr>",
-        "Diff",
-      },
     },
 
     l = {
