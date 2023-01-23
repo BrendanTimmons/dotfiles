@@ -215,7 +215,7 @@ return {
 	warn_about_missing_glyphs = false,
 	show_update_window = false,
 	check_for_updates = false,
-	line_height = 1.2,
+	line_height = 1.25,
 	window_decorations = "RESIZE",
 	window_close_confirmation = "NeverPrompt",
 	audible_bell = "Disabled",
