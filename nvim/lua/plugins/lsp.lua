@@ -24,6 +24,7 @@ function M.config()
     "bashls",
     "jsonls",
     "yamlls",
+    "eslint",
   }
 
   local settings = {
@@ -84,18 +85,19 @@ function M.config()
   local formatting = null_ls.builtins.formatting
 
   -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-  -- local diagnostics = null_ls.builtins.diagnostics
+  local diagnostics = null_ls.builtins.diagnostics
 
   -- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Formatting-on-save
   local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
   null_ls.setup({
-    debug = true,
+    debug = false,
     sources = {
       formatting.prettier.with {
         -- extra_args = { "--no-config", "--print-width 120", "--trailing-comma all", "--single-quote"}
         -- filetypes = { "javascript","typescript","css","scss","json","yaml","markdown","graphql","md","txt","html", },
       },
+      diagnostics.eslint
     },
     on_attach = function(client, bufnr)
       if client.supports_method("textDocument/formatting") then
