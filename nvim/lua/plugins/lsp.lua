@@ -17,7 +17,7 @@ function M.config()
   -- Mason
 
   local servers = {
-    "sumneko_lua",
+    "lua_ls",
     "cssls",
     "html",
     "tsserver",
@@ -25,6 +25,7 @@ function M.config()
     "jsonls",
     "yamlls",
     "eslint",
+    "tailwindcss",
   }
 
   local settings = {
