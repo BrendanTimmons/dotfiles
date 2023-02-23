@@ -211,6 +211,7 @@ return {
   font = wezterm.font('FiraCode Nerd Font', {}),
   font_size = 14,
 	max_fps = 120,
+  scrollback_lines = 10000,
 	pane_focus_follows_mouse = false,
 	warn_about_missing_glyphs = false,
 	show_update_window = false,
