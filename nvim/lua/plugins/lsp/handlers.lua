@@ -81,6 +81,12 @@ M.on_attach = function(client, bufnr)
   if client.name == "html" then
     client.server_capabilities.documentFormattingProvider = false
   end
+  if client.name == "eslint" then
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
 end
