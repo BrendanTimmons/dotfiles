@@ -98,7 +98,8 @@ function M.config()
         -- extra_args = { "--no-config", "--print-width 120", "--trailing-comma all", "--single-quote"}
         -- filetypes = { "javascript","typescript","css","scss","json","yaml","markdown","graphql","md","txt","html", },
       },
-      diagnostics.eslint
+      diagnostics.eslint,
+      diagnostics.stylelint
     },
     on_attach = function(client, bufnr)
       if client.supports_method("textDocument/formatting") then
