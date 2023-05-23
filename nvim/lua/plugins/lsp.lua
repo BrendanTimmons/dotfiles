@@ -17,6 +17,8 @@ function M.config()
   -- Mason
 
   local servers = {
+    "ruby_ls",
+    "solargraph",
     "lua_ls",
     "cssls",
     "html",

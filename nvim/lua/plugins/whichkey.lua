@@ -139,6 +139,10 @@ function M.config()
         "Workspace Symbols",
       },
     },
+    r = {
+      name = "Ruby",
+      t = {"<cmd>TermExec direction=float cmd='bundle exec rspec %'<cr>", "Test File"},
+    },
     s = {
       name = "Search",
       b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
