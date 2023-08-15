@@ -53,7 +53,7 @@ function M.config()
       },
     },
     view = {
-      width = 40,
+      width = 60,
       side = "left",
       relativenumber = true,
     },

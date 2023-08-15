@@ -22,7 +22,7 @@ local function fix_all(opts)
 
   local bufnr = util.validate_bufnr(opts.bufnr or 0)
   request(0, 'workspace/executeCommand', {
-    command = 'eslint.applyAllFixes',
+    command = 'eslint_d.applyAllFixes',
     arguments = {
       {
         uri = vim.uri_from_bufnr(bufnr),
