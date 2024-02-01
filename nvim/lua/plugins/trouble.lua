@@ -1,5 +1,5 @@
 return {
   "folke/trouble.nvim",
-  event = "VimEnter",
+  event = "BufReadPost",
   opts = { use_diagnostic_signs = true },
 }

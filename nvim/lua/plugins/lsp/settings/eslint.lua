@@ -5,6 +5,7 @@ local function fix_all(opts)
   opts = opts or {}
 
   local eslint_lsp_client = util.get_active_client_by_name(opts.bufnr, 'eslint')
+  -- local eslint_lsp_client = util.get_active_client_by_name(opts.bufnr, 'eslint_d')
   if eslint_lsp_client == nil then
     return
   end
@@ -22,7 +23,7 @@ local function fix_all(opts)
 
   local bufnr = util.validate_bufnr(opts.bufnr or 0)
   request(0, 'workspace/executeCommand', {
-    command = 'eslint_d.applyAllFixes',
+    command = 'eslint.applyAllFixes',
     arguments = {
       {
         uri = vim.uri_from_bufnr(bufnr),
