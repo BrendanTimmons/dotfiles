@@ -1,14 +1,14 @@
 local M = {
   "lewis6991/gitsigns.nvim",
-  event = "BufReadPost"
+  event = "VeryLazy"
 }
 
 function M.config()
-  if not package.loaded.trouble then
-    package.preload.trouble = function()
-      return true
-    end
-  end
+  -- if not package.loaded.trouble then
+  --   package.preload.trouble = function()
+  --     return true
+  --   end
+  -- end
 
   require("gitsigns").setup({
     signs = {

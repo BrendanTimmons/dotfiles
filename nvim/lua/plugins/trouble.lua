@@ -1,5 +1,6 @@
 return {
   "folke/trouble.nvim",
-  opts = { use_diagnostic_signs = true },
-  event = "BufReadPost"
+  event = "VeryLazy",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  opts = {},
 }
