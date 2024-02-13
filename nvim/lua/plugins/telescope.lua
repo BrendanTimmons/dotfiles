@@ -111,6 +111,16 @@ function M.config()
   telescope.load_extension('projects')
   telescope.load_extension('bookmarks')
   telescope.load_extension('fzf')
+
+  -- local builtin = require('telescope.builtin')
+  -- vim.keymap.set('n', '<leader>s', function()
+  --   local word = vim.fn.expand("<cword>")
+  --   builtin.grep_string({ search = word })
+  -- end)
+  -- vim.keymap.set('n', '<leader>S', function()
+  --   local word = vim.fn.expand("<cWORD>")
+  --   builtin.grep_string({ search = word })
+  -- end)
 end
 
 return M

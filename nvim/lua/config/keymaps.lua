@@ -51,6 +51,7 @@ keymap("i", "tf", "<ESC>:w<CR>", opts)
 -- Stay in visual block when indenting 
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+-- move selected lines
 keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 

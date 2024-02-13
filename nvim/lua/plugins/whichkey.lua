@@ -92,7 +92,6 @@ function M.config()
     ["w"] = { "<cmd>w!<CR>", "Save" },
     ["q"] = { "<cmd>q!<CR>", "Quit" },
     ["c"] = { "<cmd>bdelete!<CR>", "Close Buffer" },
-    ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
     ["f"] = {
       "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
       "Find files",
@@ -145,6 +144,20 @@ function M.config()
     },
     s = {
       name = "Search",
+      s = {
+        function()
+          local word = vim.fn.expand("<cword>")
+          require("telescope.builtin").grep_string({ search = word })
+        end,
+        "Search word under cursor"
+      },
+      t = {
+        function()
+          local word = vim.fn.expand("<cWORD>")
+          require("telescope.builtin").grep_string({ search = word })
+        end,
+        "Search full under cursor"
+      },
       b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
       c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
       h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
