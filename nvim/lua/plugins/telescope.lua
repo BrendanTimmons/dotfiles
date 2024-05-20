@@ -4,7 +4,6 @@ local M = {
   dependencies = {
     {"nvim-lua/plenary.nvim"},
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    {"dhruvmanila/telescope-bookmarks.nvim"},
   }
 }
 
@@ -101,15 +100,10 @@ function M.config()
         case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
         -- the default case_mode is "smart_case"
       },
-      bookmarks = {
-        selected_browser = 'chrome',
-        profile_name = 'Work'
-      }
     },
   })
 
   telescope.load_extension('projects')
-  telescope.load_extension('bookmarks')
   telescope.load_extension('fzf')
 
   -- local builtin = require('telescope.builtin')

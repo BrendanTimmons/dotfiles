@@ -5,6 +5,7 @@ local M = {
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
     "nvimtools/none-ls.nvim",
+    "nvimtools/none-ls-extras.nvim",
     "jayp0521/mason-null-ls.nvim",
     "j-hui/fidget.nvim",
   },
@@ -17,7 +18,7 @@ function M.config()
   -- Mason
   --
   local servers = {
-    "ruby_ls",
+    "ruby-lsp",
     "solargraph",
     "lua_ls",
     "cssls",
@@ -28,7 +29,9 @@ function M.config()
     "yamlls",
     "eslint",
     "tailwindcss",
-    "rust_analyzer"
+    "rust_analyzer",
+    "gopls",
+    "htmx"
   }
   local settings = {
     ui = {
@@ -74,19 +77,26 @@ function M.config()
   -- Null-ls
   --
   local null_ls = require("null-ls")               -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-  local formatting = null_ls.builtins.formatting   -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-  local diagnostics = null_ls.builtins.diagnostics -- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Formatting-on-save
+  local formatting = null_ls.builtins
+  .formatting                                      -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
+  local diagnostics = null_ls.builtins
+  .diagnostics                                     -- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Formatting-on-save
   local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
   null_ls.setup({
     debug = false,
     sources = {
-      formatting.prettier.with {
-        -- extra_args = { "--no-config", "--print-width 120", "--trailing-comma all", "--single-quote"}
-        -- filetypes = { "javascript","typescript","css","scss","json","yaml","markdown","graphql","md","txt","html", },
-      },
-      -- diagnostics.eslint_d,
-      diagnostics.eslint,
-      diagnostics.stylelint
+      require("none-ls.diagnostics.eslint_d"),
+      null_ls.builtins.formatting.stylua,
+      null_ls.builtins.formatting.prettier,
+
+      -- old before looking at https://stackoverflow.com/questions/78150730/failed-to-load-builtin-eslint-d-for-method-diagnostics
+      -- formatting.prettier.with {
+      --   -- extra_args = { "--no-config", "--print-width 120", "--trailing-comma all", "--single-quote"}
+      --   -- filetypes = { "javascript","typescript","css","scss","json","yaml","markdown","graphql","md","txt","html", },
+      -- },
+      -- --diagnostics.eslint_d,
+      -- diagnostics.eslint,
+      -- diagnostics.stylelint
     },
     on_attach = function(client, bufnr)
       if client.supports_method("textDocument/formatting") then
