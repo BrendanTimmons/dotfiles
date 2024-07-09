@@ -207,12 +207,13 @@ function M.config()
     },
     x = {
       name = "Trouble",
-      x = { "<cmd>TroubleToggle<cr>", "Toggle Trouble" },
-      w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics" },
-      d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document Diagnostics" },
-      l = { "<cmd>TroubleToggle loclist<cr>", "Location List" },
-      q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
-      r = { "<cmd>TroubleToggle lsp_references<cr>", "LSP References" },
+      x = { "<cmd>Trouble diagnostics toggle<cr>", "Toggle Trouble" },
+      X = { "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagnostics" },
+      s = { "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols" },
+      l = { "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "LSP Definitions / references" },
+      L = { "<cmd>Trouble loclist toggle<cr>", "Location List" },
+      Q = { "<cmd>Trouble quickfix toggle<cr>", "Quickfix" },
+      r = { "<cmd>Trouble lsp_references toggle<cr>", "LSP References" },
     }
   }
 
