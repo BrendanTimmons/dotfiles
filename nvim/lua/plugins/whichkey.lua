@@ -74,164 +74,110 @@ function M.config()
     }
   })
 
-  local opts = {
-    mode = "n",     -- NORMAL mode
-    prefix = "<leader>",
-    buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true,  -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = true,  -- use `nowait` when creating keymaps
-  }
-
   local mappings = {
-    ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-    ["b"] = {
-      "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-      "Buffers",
-    },
-    ["B"] = { "<cmd>Telescope bookmarks<cr>", "Bookmarks" },
-    ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-    ["w"] = { "<cmd>w!<CR>", "Save" },
-    ["q"] = { "<cmd>q!<CR>", "Quit" },
-    ["c"] = { "<cmd>bdelete!<CR>", "Close Buffer" },
-    ["f"] = {
-      "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-      "Find files",
-    },
-    ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-    ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
+    { "<leader>a", "<cmd>Alpha<cr>",                                                                                                    desc = "Alpha" },
+    { "<leader>b", "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",    desc = "Buffers", },
+    { "<leader>e", "<cmd>NvimTreeToggle<cr>",                                                                                           desc = "Explorer" },
+    { "<leader>c", "<cmd>bdelete!<CR>",                                                                                                 desc = "Close Buffer" },
+    { "<leader>f", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", desc = "Find files", },
+    { "<leader>F", "<cmd>Telescope live_grep theme=ivy<cr>",                                                                            desc = "Find Text" },
+    { "<leader>P", "<cmd>Telescope projects<cr>",                                                                                       desc = "Projects" },
 
-    ["p"] = {
-      name = "Goto Preview",
-      d = { "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", "Definition" },
-      t = { "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>", "Type Definition" },
-      i = { "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", "Implementation" },
-      r = { "<cmd>lua require('goto-preview').goto_preview_references()<CR>", "References" },
-      x = { "<cmd>lua require('goto-preview').close_all_win()<CR>", "Close all windows" },
+    {
+      "<leader>p",
+      group = "Goto Preview",
+      { "<leader>pd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",      desc = "Definition" },
+      { "<leader>pt", "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>", desc = "Type Definition" },
+      { "<leader>pi", "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>",  desc = "Implementation" },
+      { "<leader>pr", "<cmd>lua require('goto-preview').goto_preview_references()<CR>",      desc = "References" },
+      { "<leader>px", "<cmd>lua require('goto-preview').close_all_win()<CR>",                desc = "Close all windows" },
     },
 
-    g = {
-      name = "Git",
-      o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-      b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-      c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+    {
+      "<leader>g",
+      group = "Git",
+      { "<leader>go", "<cmd>Telescope git_status<cr>",   desc = "Open changed file" },
+      { "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
+      { "<leader>gc", "<cmd>Telescope git_commits<cr>",  desc = "Checkout commit" },
     },
 
-    h = {
-      name = "Harpoon",
-      a = {
-        function() harpoon:list():add() end,
-        "Add file to harpoon list"
-      },
-      h = {
-        function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
-        "Toggle harpoon list"
-      },
-      ["1"] = {
-        function() harpoon:list():select(1) end,
-        "Goto file 1"
-      },
-      ["2"] = {
-        function() harpoon:list():select(2) end,
-        "Goto file 2"
-      },
-      ["3"] = {
-        function() harpoon:list():select(3) end,
-        "Goto file 3"
-      },
-      ["4"] = {
-        function() harpoon:list():select(4) end,
-        "Goto file 4"
-      },
-      ["["] = {
-        function() harpoon:list():prev() end,
-        "Goto previous file"
-      },
-      ["]"] = {
-        function() harpoon:list():nexe() end,
-        "Goto previous file"
-      }
+    {
+      "<leader>h",
+      group = "Harpoon",
+      { "<leader>ha", function() harpoon:list():add() end,                         desc = "Add file to harpoon list" },
+      { "<leader>hh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, desc = "Toggle harpoon list" },
+      { "<leader>h1", function() harpoon:list():select(1) end,                     desc = "Goto file 1" },
+      { "<leader>h2", function() harpoon:list():select(2) end,                     desc = "Goto file 2" },
+      { "<leader>h3", function() harpoon:list():select(3) end,                     desc = "Goto file 3" },
+      { "<leader>h4", function() harpoon:list():select(4) end,                     desc = "Goto file 4" },
+      { "<leader>h[", function() harpoon:list():prev() end,                        desc = "Goto previous file" },
+      { "<leader>h]", function() harpoon:list():next() end,                        desc = "Goto next file" }
     },
 
-    l = {
-      name = "LSP",
-      a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
-      f = { "<cmd>lua vim.lsp.buf.format { async = true }<CR>", "Format" },
-      i = { "<cmd>LspInfo<cr>", "Info" },
-      I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-      j = {
-        "<cmd>lua vim.diagnostic.goto_next()<CR>",
-        "Next Diagnostic",
-      },
-      k = {
-        "<cmd>lua vim.diagnostic.goto_prev()<cr>",
-        "Prev Diagnostic",
-      },
-      l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-      q = { "<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix" },
-      r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-      s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-      S = {
-        "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-        "Workspace Symbols",
-      },
+    {
+      "<leader>l",
+      group = "LSP",
+      { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>",           desc = "Code Action" },
+      { "<leader>lf", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", desc = "Format" },
+      { "<leader>li", "<cmd>LspInfo<cr>",                                 desc = "Info" },
+      { "<leader>lI", "<cmd>LspInstallInfo<cr>",                          desc = "Installer Info" },
+      { "<leader>lj", "<cmd>lua vim.diagnostic.goto_next()<CR>",          desc = "Next Diagnostic", },
+      { "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev()<cr>",          desc = "Prev Diagnostic", },
+      { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>",              desc = "CodeLens Action" },
+      { "<leader>lq", "<cmd>lua vim.diagnostic.set_loclist()<cr>",        desc = "Quickfix" },
+      { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>",                desc = "Rename" },
+      { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>",          desc = "Document Symbols" },
+      { "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols", },
     },
-    r = {
-      name = "Ruby",
-      t = { "<cmd>TermExec direction=float cmd='bundle exec rspec %'<cr>", "Test File" },
+    {
+      "<leader>r",
+      group = "Ruby",
+      { "<leader>rt", "<cmd>TermExec direction=float cmd='bundle exec rspec %'<cr>", desc = "Test File" },
     },
-    s = {
-      name = "Search",
-      s = {
+    {
+      "<leader>s",
+      group = "Search",
+      {
+        "<leader>ss",
         function()
           local word = vim.fn.expand("<cword>")
           require("telescope.builtin").grep_string({ search = word })
         end,
-        "Search word under cursor"
+        desc = "Search word under cursor"
       },
-      t = {
+      {
+        "<leader>st",
         function()
           local word = vim.fn.expand("<cWORD>")
           require("telescope.builtin").grep_string({ search = word })
         end,
-        "Search full under cursor"
+        desc = "Search full under cursor"
       },
-      b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-      c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-      h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-      M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-      r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-      R = { "<cmd>Telescope registers<cr>", "Registers" },
-      k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-      C = { "<cmd>Telescope commands<cr>", "Commands" },
+      { "<leader>sb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
+      { "<leader>sc", "<cmd>Telescope colorscheme<cr>",  desc = "Colorscheme" },
+      { "<leader>sh", "<cmd>Telescope help_tags<cr>",    desc = "Find Help" },
+      { "<leader>sM", "<cmd>Telescope man_pages<cr>",    desc = "Man Pages" },
+      { "<leader>sr", "<cmd>Telescope oldfiles<cr>",     desc = "Open Recent File" },
+      { "<leader>sR", "<cmd>Telescope registers<cr>",    desc = "Registers" },
+      { "<leader>sk", "<cmd>Telescope keymaps<cr>",      desc = "Keymaps" },
+      { "<leader>sC", "<cmd>Telescope commands<cr>",     desc = "Commands" },
     },
-    x = {
-      name = "Trouble",
-      x = { "<cmd>Trouble diagnostics toggle<cr>", "Toggle Trouble" },
-      X = { "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagnostics" },
-      s = { "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols" },
-      l = { "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "LSP Definitions / references" },
-      L = { "<cmd>Trouble loclist toggle<cr>", "Location List" },
-      Q = { "<cmd>Trouble quickfix toggle<cr>", "Quickfix" },
-      r = { "<cmd>Trouble lsp_references toggle<cr>", "LSP References" },
-    }
-  }
+    {
+      "<leader>x",
+      group = "Trouble",
 
-  local vopts = {
-    mode = "v",     -- VISUAL mode
-    prefix = "<leader>",
-    buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true,  -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = true,  -- use `nowait` when creating keymaps
-  }
-  local vmappings = {
-    ["/"] = { "<ESC><CMD>lua require(\"Comment.api\").toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment" },
+      { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>",                        desc = "Toggle Trouble" },
+      { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",           desc = "Buffer Diagnostics" },
+      { "<leader>xs", "<cmd>Trouble symbols toggle focus=false<cr>",                desc = "Symbols" },
+      { "<leader>xl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", desc = "LSP Definitions / references" },
+      { "<leader>xL", "<cmd>Trouble loclist toggle<cr>",                            desc = "Location List" },
+      { "<leader>xQ", "<cmd>Trouble quickfix toggle<cr>",                           desc = "Quickfix" },
+      { "<leader>xr", "<cmd>Trouble lsp_references toggle<cr>",                     desc = "LSP References" },
+    },
   }
 
   local wk = require("which-key")
-  wk.register(mappings, opts)
-  wk.register(vmappings, vopts)
+  wk.add(mappings)
 end
 
 return M

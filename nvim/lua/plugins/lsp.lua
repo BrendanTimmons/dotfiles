@@ -83,21 +83,11 @@ function M.config()
       .diagnostics                   -- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Formatting-on-save
   local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
   null_ls.setup({
-    debug = false,
+    debug = true,
     sources = {
       require("none-ls.diagnostics.eslint_d"),
-      null_ls.builtins.diagnostics.eslint_d,
-      null_ls.builtins.formatting.stylua,
-      null_ls.builtins.formatting.prettier,
-
-      -- old before looking at https://stackoverflow.com/questions/78150730/failed-to-load-builtin-eslint-d-for-method-diagnostics
-      -- formatting.prettier.with {
-      --   -- extra_args = { "--no-config", "--print-width 120", "--trailing-comma all", "--single-quote"}
-      --   -- filetypes = { "javascript","typescript","css","scss","json","yaml","markdown","graphql","md","txt","html", },
-      -- },
-      -- --diagnostics.eslint_d,
-      -- diagnostics.eslint,
-      -- diagnostics.stylelint
+      formatting.stylua,
+      formatting.prettierd,
     },
     on_attach = function(client, bufnr)
       if client.supports_method("textDocument/formatting") then
@@ -106,7 +96,7 @@ function M.config()
           group = augroup,
           buffer = bufnr,
           callback = function()
-            vim.lsp.buf.format({ bufnr = bufnr })
+            vim.lsp.buf.format({ async = false })
           end,
         })
       end
