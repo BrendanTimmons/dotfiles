@@ -85,9 +85,9 @@ function M.config()
   null_ls.setup({
     debug = true,
     sources = {
-      require("none-ls.diagnostics.eslint_d"),
+      require("none-ls.diagnostics.eslint"),
       formatting.stylua,
-      formatting.prettierd,
+      formatting.prettier,
     },
     on_attach = function(client, bufnr)
       if client.supports_method("textDocument/formatting") then
