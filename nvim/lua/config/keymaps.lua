@@ -20,11 +20,8 @@ vim.g.maplocalleader = " "
 
 -- NORMAL MODE BINDS --
 
--- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<ALT-k>", ":cnext<CR>", opts)
+keymap("n", "<ALT-l>", ":cprev<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +8<CR>", opts)
@@ -48,7 +45,7 @@ keymap("i", "tf", "<ESC>:w<CR>", opts)
 
 -- VISUAL MODE BINDS --
 
--- Stay in visual block when indenting 
+-- Stay in visual block when indenting
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 -- move selected lines

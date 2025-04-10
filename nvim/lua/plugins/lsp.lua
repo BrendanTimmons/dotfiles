@@ -18,8 +18,6 @@ function M.config()
   -- Mason
   --
   local servers = {
-    "ruby-lsp",
-    "solargraph",
     "lua_ls",
     "cssls",
     "html",
@@ -29,9 +27,7 @@ function M.config()
     "yamlls",
     "eslint",
     "tailwindcss",
-    "rust_analyzer",
-    "gopls",
-    "htmx"
+    "spectral"
   }
   local settings = {
     ui = {
@@ -87,7 +83,8 @@ function M.config()
     sources = {
       require("none-ls.diagnostics.eslint"),
       formatting.stylua,
-      formatting.prettier,
+      formatting.prettierd,
+      diagnostics.eslint_d,
     },
     on_attach = function(client, bufnr)
       if client.supports_method("textDocument/formatting") then
