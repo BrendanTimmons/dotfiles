@@ -78,10 +78,13 @@ function M.config()
     { "<leader>a", "<cmd>Alpha<cr>",                                                                                                    desc = "Alpha" },
     { "<leader>b", "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",    desc = "Buffers", },
     { "<leader>e", "<cmd>NvimTreeToggle<cr>",                                                                                           desc = "Explorer" },
+    { "<leader>o", "<cmd>Oil<CR>",                                                                                                      desc = "Open parent directory" },
     { "<leader>c", "<cmd>bdelete!<CR>",                                                                                                 desc = "Close Buffer" },
     { "<leader>f", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", desc = "Find files", },
     { "<leader>F", "<cmd>Telescope live_grep theme=ivy<cr>",                                                                            desc = "Find Text" },
     { "<leader>P", "<cmd>Telescope projects<cr>",                                                                                       desc = "Projects" },
+    { "<leader>w", "<cmd>lua require('conform').format({async = true})<cr>",                                                            desc = "Format" },
+
 
     {
       "<leader>p",
