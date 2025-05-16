@@ -19,5 +19,9 @@ return {
         lint.try_lint()
       end,
     })
-  end,
+
+    vim.api.nvim_create_user_command("Lint", function()
+      lint.try_lint()
+    end, { range = false })
+  end
 }

@@ -15,7 +15,7 @@ return {
       "bashls",
       "jsonls",
       "yamlls",
-      "eslint_d",
+      "eslint",
       "tailwindcss",
       "spectral"
     }
@@ -38,6 +38,7 @@ return {
     require("mason-lspconfig").setup({
       ensure_installed = servers,
       automatic_installation = true,
+      automatic_enable = true,
     })
 
 
@@ -49,6 +50,8 @@ return {
 
     local opts = {}
 
+    -- Automatic enable should autoload these
+    --
     -- load all servers in the servers table above
     for _, server in pairs(servers) do
       opts = {
