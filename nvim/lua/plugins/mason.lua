@@ -26,9 +26,9 @@ return {
       ui = {
         border = "none",
         icons = {
-          package_installed = "◍",
-          package_pending = "◍",
-          package_uninstalled = "◍",
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗"
         },
       },
       log_level = vim.log.levels.INFO,
@@ -50,8 +50,6 @@ return {
 
     local opts = {}
 
-    -- Automatic enable should autoload these
-    --
     -- load all servers in the servers table above
     for _, server in pairs(servers) do
       opts = {
