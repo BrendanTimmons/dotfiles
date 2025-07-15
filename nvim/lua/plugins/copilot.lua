@@ -10,7 +10,7 @@ function M.config()
 
   copilot.setup({
     suggestion = { enabled = false },
-    panel = { enabled = true },
+    panel = { enabled = true, auto_refresh = true },
   })
 end
 

@@ -79,12 +79,17 @@ function M.config()
     { "<leader>b", "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",    desc = "Buffers", },
     { "<leader>e", "<cmd>NvimTreeToggle<cr>",                                                                                           desc = "Explorer" },
     { "<leader>o", "<cmd>Oil<CR>",                                                                                                      desc = "Open parent directory" },
-    { "<leader>c", "<cmd>bdelete!<CR>",                                                                                                 desc = "Close Buffer" },
     { "<leader>f", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", desc = "Find files", },
     { "<leader>F", "<cmd>Telescope live_grep theme=ivy<cr>",                                                                            desc = "Find Text" },
-    { "<leader>P", "<cmd>Telescope projects<cr>",                                                                                       desc = "Projects" },
-    { "<leader>w", "<cmd>lua require('conform').format({async = true})<cr>",                                                            desc = "Format" },
+    -- { "<leader>w", "<cmd>lua require('conform').format({async = true})<cr>",                                                            desc = "Format" },
 
+    {
+      "<leader>c",
+      group = "CodeCompanion",
+      { "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", desc = "Chat" },
+      { "<leader>ca", "<cmd>CodeCompanionChat Add<cr>",    desc = "Add selected" },
+      { "<leader>cA", "<cmd>CodeCompanionChatActions<cr>", desc = "Actions" },
+    },
 
     {
       "<leader>p",
@@ -99,6 +104,7 @@ function M.config()
     {
       "<leader>g",
       group = "Git",
+      { "<leader>gg", "<cmd>lua _lazygit_toggle()<cr>",  desc = "LazyGit" },
       { "<leader>go", "<cmd>Telescope git_status<cr>",   desc = "Open changed file" },
       { "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
       { "<leader>gc", "<cmd>Telescope git_commits<cr>",  desc = "Checkout commit" },
@@ -169,13 +175,13 @@ function M.config()
       "<leader>x",
       group = "Trouble",
 
-      { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>",                                    desc = "Toggle Trouble" },
-      { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",                       desc = "Buffer Diagnostics" },
-      { "<leader>xs", "<cmd>Trouble symbols toggle focus=false<cr>",                            desc = "Symbols" },
-      { "<leader>xl", "<cmd>Trouble lsp toggle focus=false win.position=right win.size=80<cr>", desc = "LSP Definitions / references" },
-      { "<leader>xL", "<cmd>Trouble loclist toggle<cr>",                                        desc = "Location List" },
-      { "<leader>xQ", "<cmd>Trouble quickfix toggle<cr>",                                       desc = "Quickfix" },
-      { "<leader>xr", "<cmd>Trouble lsp_references toggle<cr>",                                 desc = "LSP References" },
+      { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>",                                     desc = "Toggle Trouble" },
+      { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",                        desc = "Buffer Diagnostics" },
+      { "<leader>xs", "<cmd>Trouble symbols toggle focus=false<cr>",                             desc = "Symbols" },
+      { "<leader>xl", "<cmd>Trouble lsp toggle focus=false win.position=bottom win.size=20<cr>", desc = "LSP Definitions / references" },
+      { "<leader>xL", "<cmd>Trouble loclist toggle<cr>",                                         desc = "Location List" },
+      { "<leader>xQ", "<cmd>Trouble quickfix toggle<cr>",                                        desc = "Quickfix" },
+      { "<leader>xr", "<cmd>Trouble lsp_references toggle<cr>",                                  desc = "LSP References" },
     },
     {
       "<leader>t",
