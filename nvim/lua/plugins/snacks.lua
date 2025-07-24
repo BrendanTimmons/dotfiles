@@ -5,17 +5,35 @@ return {
   opts = {
     bigfile = { enabled = true },
     dashboard = { enabled = true },
+    dim = {
+      enabled = true,
+      animate = {
+        duration = { step = 10 }
+      }
+    },
     explorer = { enabled = true },
+    git = { enabled = true },
     input = { enabled = true },
     lazygit = { enabled = true },
     notifier = { enabled = true },
     picker = { enabled = true },
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
+    toggle = { enabled = true },
     words = { enabled = true },
   },
   keys = {
-    { "<leader>d",       function() Snacks.dashboard() end,                                      desc = "Dashboard" },
+    { "<leader>a",       function() Snacks.dashboard() end,                                      desc = "Dashboard" },
+
+    -- dim
+    { "<leader>de",      function() Snacks.dim.enable() end,                                     desc = "Enable Dim" },
+    { "<leader>dd",      function() Snacks.dim.disable() end,                                    desc = "Disable Dim" },
+
+    -- words
+    { "<leader>wc",      function() Snacks.words.clear() end,                                    desc = "Clear Words" },
+    { "<leader>we",      function() Snacks.words.enable() end,                                   desc = "Enable Words" },
+    { "<leader>wd",      function() Snacks.words.disable() end,                                  desc = "Disable Words" },
+    { "<leader>wj",      function() Snacks.words.jump() end,                                     desc = "Jump Words" },
 
     -- Top Pickers & Explorer
     { "<leader><space>", function() Snacks.picker.smart() end,                                   desc = "Smart Find Files" },
@@ -34,6 +52,7 @@ return {
     { "<leader>fr",      function() Snacks.picker.recent() end,                                  desc = "Recent" },
     -- git
     { "<leader>gb",      function() Snacks.picker.git_branches() end,                            desc = "Git Branches" },
+    { "<leader>gB",      function() Snacks.git.blame_line() end,                                 desc = "Git Blame Line" },
     { "<leader>gl",      function() Snacks.picker.git_log() end,                                 desc = "Git Log" },
     { "<leader>gL",      function() Snacks.picker.git_log_line() end,                            desc = "Git Log Line" },
     { "<leader>gs",      function() Snacks.picker.git_status() end,                              desc = "Git Status" },
@@ -68,14 +87,14 @@ return {
     { "<leader>sq",      function() Snacks.picker.qflist() end,                                  desc = "Quickfix List" },
     { "<leader>sR",      function() Snacks.picker.resume() end,                                  desc = "Resume" },
     { "<leader>su",      function() Snacks.picker.undo() end,                                    desc = "Undo History" },
-    { "<leader>uC",      function() Snacks.picker.colorschemes() end,                            desc = "Colorschemes" },
+    { "<leader>sC",      function() Snacks.picker.colorschemes() end,                            desc = "Colorschemes" },
     -- LSP
     { "gd",              function() Snacks.picker.lsp_definitions() end,                         desc = "Goto Definition" },
     { "gD",              function() Snacks.picker.lsp_declarations() end,                        desc = "Goto Declaration" },
     { "gr",              function() Snacks.picker.lsp_references() end,                          nowait = true,                     desc = "References" },
     { "gI",              function() Snacks.picker.lsp_implementations() end,                     desc = "Goto Implementation" },
     { "gy",              function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto T[y]pe Definition" },
-    { "<leader>ss",      function() Snacks.picker.lsp_symbols() end,                             desc = "LSP Symbols" },
-    { "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end,                   desc = "LSP Workspace Symbols" },
+    { "<leader>ls",      function() Snacks.picker.lsp_symbols() end,                             desc = "LSP Symbols" },
+    { "<leader>lS",      function() Snacks.picker.lsp_workspace_symbols() end,                   desc = "LSP Workspace Symbols" },
   }
 }
