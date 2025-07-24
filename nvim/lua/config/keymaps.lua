@@ -35,12 +35,10 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<C-x>", ":BufferLinePick<CR>", opts)
 
 
-
 -- INSERT MODE BINDS --
 
 -- Press tf fast to save in insert mode
 keymap("i", "tf", "<ESC>:w<CR>", opts)
-
 
 
 -- VISUAL MODE BINDS --
@@ -51,8 +49,3 @@ keymap("v", ">", ">gv", opts)
 -- move selected lines
 keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
-
-
--- Telescope
-keymap("n", "<C-P>", "<cmd> lua require('telescope.builtin').find_files()<cr>", opts)
-keymap("n", "<C-F>", "<cmd> lua require('telescope.builtin').live_grep()<cr>", opts)

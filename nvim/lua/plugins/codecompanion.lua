@@ -1,10 +1,15 @@
 local M = {
   "olimorris/codecompanion.nvim",
-  cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions" },
-  opts = {},
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
+  },
+  cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions" },
+  opts = {},
+  keys = {
+    { "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", desc = "Chat" },
+    { "<leader>ca", "<cmd>CodeCompanionChat Add<cr>",    desc = "Add selected" },
+    { "<leader>cA", "<cmd>CodeCompanionActions<cr>",     desc = "Actions" },
   },
 }
 
