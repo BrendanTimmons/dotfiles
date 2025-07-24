@@ -8,11 +8,11 @@ function M.config()
   require("catppuccin").setup({
     compile_path = vim.fn.stdpath "cache" .. "/catppuccin",
     flavour = "mocha", -- latte, frappe, macchiato, mocha
-    background = { -- :h background
+    background = {     -- :h background
       light = "latte",
       dark = "mocha",
     },
-    transparent_background = false,
+    transparent_background = true,
     show_end_of_buffer = false, -- show the '~' characters after the end of buffers
     term_colors = true,
     dim_inactive = {
@@ -21,7 +21,7 @@ function M.config()
       percentage = 0.15,
     },
     no_italic = true, -- Force no italic
-    no_bold = false, -- Force no bold
+    no_bold = false,  -- Force no bold
     styles = {
       comments = { "italic" },
       conditionals = { "italic" },

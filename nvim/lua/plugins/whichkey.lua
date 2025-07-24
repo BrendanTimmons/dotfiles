@@ -88,7 +88,7 @@ function M.config()
       group = "CodeCompanion",
       { "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", desc = "Chat" },
       { "<leader>ca", "<cmd>CodeCompanionChat Add<cr>",    desc = "Add selected" },
-      { "<leader>cA", "<cmd>CodeCompanionChatActions<cr>", desc = "Actions" },
+      { "<leader>cA", "<cmd>CodeCompanionActions<cr>",     desc = "Actions" },
     },
 
     {

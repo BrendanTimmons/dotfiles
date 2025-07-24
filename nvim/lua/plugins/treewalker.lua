@@ -24,6 +24,7 @@ return {
     jumplist = true,
   },
   -- M = meta and for some reason on Mac need to also hold alt as well?
+  -- :help key-notation to list them
   keys = {
     { '<M-k>',   '<cmd>Treewalker Up<cr>',        mode = { 'n', 'v' },           desc = 'Treewalker Up' },
     { '<M-j>',   '<cmd>Treewalker Down<cr>',      mode = { 'n', 'v' },           desc = 'Treewalker Down' },
