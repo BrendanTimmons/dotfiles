@@ -4,7 +4,22 @@ return {
   lazy = false,
   opts = {
     bigfile = { enabled = true },
-    dashboard = { enabled = true },
+    dashboard = {
+      enabled = true,
+
+      sections = {
+        {
+          section = "terminal",
+          cmd =
+          "chafa ~/.config/wall.jpg --probe off --format symbols --symbols vhalf --size 60; sleep .1",
+          height = 20,
+          width = 60,
+          padding = 1
+        },
+        { section = "keys",   gap = 1, padding = 1 },
+        { section = "startup" },
+      },
+    },
     dim = {
       enabled = true,
       animate = {
@@ -16,7 +31,24 @@ return {
     input = { enabled = true },
     lazygit = { enabled = true },
     notifier = { enabled = true },
-    picker = { enabled = true },
+    picker = {
+      enabled = true,
+      sources = {
+        explorer = {
+          auto_close = true,
+          layout = { preset = "ivy", preview = true },
+          matcher = { fuzzy = false },
+          win = {
+            list = {
+              wo = {
+                number = true,
+                relativenumber = true,
+              },
+            },
+          },
+        },
+      },
+    },
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
     toggle = { enabled = true },
@@ -42,6 +74,7 @@ return {
     { "<leader>:",       function() Snacks.picker.command_history() end,                         desc = "Command History" },
     { "<leader>n",       function() Snacks.picker.notifications() end,                           desc = "Notification History" },
     { "<leader>e",       function() Snacks.explorer() end,                                       desc = "File Explorer" },
+
     -- find
     { "<leader>fb",      function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
     { "<leader>fc",      function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
@@ -50,6 +83,7 @@ return {
     { "<leader>fg",      function() Snacks.picker.git_files() end,                               desc = "Find Git Files" },
     { "<leader>fp",      function() Snacks.picker.projects() end,                                desc = "Projects" },
     { "<leader>fr",      function() Snacks.picker.recent() end,                                  desc = "Recent" },
+
     -- git
     { "<leader>gb",      function() Snacks.picker.git_branches() end,                            desc = "Git Branches" },
     { "<leader>gB",      function() Snacks.git.blame_line() end,                                 desc = "Git Blame Line" },
@@ -60,12 +94,14 @@ return {
     { "<leader>gd",      function() Snacks.picker.git_diff() end,                                desc = "Git Diff (Hunks)" },
     { "<leader>gf",      function() Snacks.picker.git_log_file() end,                            desc = "Git Log File" },
     { "<leader>gg",      function() Snacks.lazygit() end,                                        desc = "LazyGit" },
+
     -- Grep
     { "<leader>sb",      function() Snacks.picker.lines() end,                                   desc = "Buffer Lines" },
     { "<leader>sB",      function() Snacks.picker.grep_buffers() end,                            desc = "Grep Open Buffers" },
     { "<leader>sg",      function() Snacks.picker.grep() end,                                    desc = "Grep" },
     { "<C-F>",           function() Snacks.picker.grep() end,                                    desc = "Grep" },
     { "<leader>sw",      function() Snacks.picker.grep_word() end,                               desc = "Visual selection or word", mode = { "n", "x" } },
+
     -- search
     { '<leader>s"',      function() Snacks.picker.registers() end,                               desc = "Registers" },
     { '<leader>s/',      function() Snacks.picker.search_history() end,                          desc = "Search History" },
@@ -88,6 +124,7 @@ return {
     { "<leader>sR",      function() Snacks.picker.resume() end,                                  desc = "Resume" },
     { "<leader>su",      function() Snacks.picker.undo() end,                                    desc = "Undo History" },
     { "<leader>sC",      function() Snacks.picker.colorschemes() end,                            desc = "Colorschemes" },
+
     -- LSP
     { "gd",              function() Snacks.picker.lsp_definitions() end,                         desc = "Goto Definition" },
     { "gD",              function() Snacks.picker.lsp_declarations() end,                        desc = "Goto Declaration" },
