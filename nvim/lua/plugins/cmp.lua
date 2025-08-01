@@ -3,9 +3,6 @@ local M = {
   event = "InsertEnter",
   dependencies = {
     "L3MON4D3/LuaSnip",
-    "saadparwaiz1/cmp_luasnip", -- snippet completions
-    "rafamadriz/friendly-snippets",
-    "mlaursen/vim-react-snippets",
     "hrsh7th/cmp-buffer",   -- buffer completions
     "hrsh7th/cmp-path",     -- path completions
     "hrsh7th/cmp-cmdline",  -- cmdline completions
@@ -21,7 +18,6 @@ function M.config()
   end
 
   require("luasnip/loaders/from_vscode").lazy_load()
-  require("vim-react-snippets").lazy_load()
 
   local kind_icons = {
     Array         = " ",
