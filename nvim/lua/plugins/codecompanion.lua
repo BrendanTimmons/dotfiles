@@ -35,7 +35,8 @@ function M.config()
             content = function(context)
               return "I want you to act as a senior "
                   .. context.filetype
-                  .. " developer. I will ask you specific questions and I want you to return concise explanations and codeblock examples."
+                  ..
+                  " developer. I will ask you specific questions and I want you to step through the thought process of the problem and how you would resolve it. Then return concise explanations and codeblock examples with a focus on readability."
             end,
           },
           {
