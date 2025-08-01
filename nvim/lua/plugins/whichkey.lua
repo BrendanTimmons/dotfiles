@@ -74,7 +74,6 @@ function M.config()
 
   local mappings = {
     { "<leader>c", group = "CodeCompanion" },
-    { "<leader>d", group = "Dim" },
     { "<leader>w", group = "Words" },
     { "<leader>f", group = "Find" },
     { "<leader>s", group = "Search" },
@@ -97,19 +96,6 @@ function M.config()
       { "<leader>xL", "<cmd>Trouble loclist toggle<cr>",                                         desc = "Location List" },
       { "<leader>xQ", "<cmd>Trouble quickfix toggle<cr>",                                        desc = "Quickfix" },
       { "<leader>xr", "<cmd>Trouble lsp_references toggle<cr>",                                  desc = "LSP References" },
-    },
-    {
-      "<leader>t",
-      group = "Neotest",
-      { "<leader>tt", "<cmd>lua require('neotest').run.run()<cr>",                                                              desc = "Test under cursor" },
-      { "<leader>tT", "<cmd>lua require('neotest').run.run({vim.fn.expand(' % ')})<cr>",                                        desc = "Test file" },
-      { "<leader>tw", "<cmd>lua require('neotest').watch.toggle()<cr>",                                                         desc = "Toggle neotest watch" },
-      { "<leader>tW", '<cmd>lua require("neotest").watch.toggle({vim.fn.expand("%")})<cr>',                                     desc = "Toggle neotest file watch" },
-      { "<leader>tl", '<cmd>lua require("neotest").run.run_last()<cr>',                                                         desc = "Run the last test" },
-      { "<leader>to", '<cmd>lua require("neotest").output.open({ enter = true })<cr>',                                          desc = "Show neotest output" },
-      { "<leader>ts", '<cmd>lua require("neotest").summary.toggle()<cr>',                                                       desc = "Toggle neotest summary" },
-      { "<leader>tv", "<cmd>lua require('neotest').run.run({ vitestCommand = 'pnpm vitest --watch' })<cr>",                     desc = "Toggle vitest watch" },
-      { "<leader>tV", "<cmd>lua require('neotest').run.run({ vim.fn.expand('%'), vitestCommand = 'pnpm vitest --watch' })<cr>", desc = "Toggle vitest watch file" },
     },
   }
 
