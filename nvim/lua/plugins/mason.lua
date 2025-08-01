@@ -3,7 +3,6 @@ return {
   dependencies = {
     "mason-org/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
-    "j-hui/fidget.nvim",
   },
   event = "BufReadPost",
   config = function()

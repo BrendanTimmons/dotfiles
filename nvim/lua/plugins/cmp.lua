@@ -2,9 +2,7 @@ local M = {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
   dependencies = {
-    "hrsh7th/cmp-buffer",   -- buffer completions
     "hrsh7th/cmp-path",     -- path completions
-    "hrsh7th/cmp-cmdline",  -- cmdline completions
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-nvim-lua", -- completions for nvim lua config
   },
@@ -108,7 +106,6 @@ function M.config()
           copilot = "[Copilot]",
           nvim_lsp = "[LSP]",
           nvim_lua = "[NVIM_LUA]",
-          buffer = "[Buffer]",
           path = "[Path]",
         })[entry.source.name]
         return vim_item
@@ -118,7 +115,6 @@ function M.config()
       { name = "copilot" },
       { name = "nvim_lsp" },
       { name = "nvim_lua" },
-      { name = "buffer" },
       { name = "path" },
     },
     experimental = {
