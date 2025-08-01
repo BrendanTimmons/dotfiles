@@ -1,12 +1,21 @@
-return {
+local M = {
   'stevearc/oil.nvim',
-  opts = {},
-  dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+  opts = {
+    float = {
+      padding = 5,
+      max_width = 0.8
+    },
+  },
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   keys = {
-    { "<leader>o", "<cmd>Oil<CR>", desc = "Oil" },
+    { "<leader>o", "<cmd>Oil --float --preview<CR>", desc = "Oil float" },
+    { "<leader>O", "<cmd>Oil --preview<CR>",         desc = "Oil" },
   },
   lazy = false,
-  config = function()
-    require("oil").setup()
-  end
 }
+
+function M.config()
+  require("oil").setup(M.opts)
+end
+
+return M
