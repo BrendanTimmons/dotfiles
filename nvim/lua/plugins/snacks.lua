@@ -20,12 +20,6 @@ return {
         { section = "startup" },
       },
     },
-    dim = {
-      enabled = true,
-      animate = {
-        duration = { step = 10 }
-      }
-    },
     explorer = { enabled = true },
     git = { enabled = true },
     input = { enabled = true },
@@ -49,17 +43,10 @@ return {
         },
       },
     },
-    quickfile = { enabled = true },
     statuscolumn = { enabled = true },
-    toggle = { enabled = true },
-    words = { enabled = true },
   },
   keys = {
     { "<leader>a",       function() Snacks.dashboard() end,                                      desc = "Dashboard" },
-
-    -- dim
-    { "<leader>de",      function() Snacks.dim.enable() end,                                     desc = "Enable Dim" },
-    { "<leader>dd",      function() Snacks.dim.disable() end,                                    desc = "Disable Dim" },
 
     -- words
     { "<leader>wc",      function() Snacks.words.clear() end,                                    desc = "Clear Words" },
