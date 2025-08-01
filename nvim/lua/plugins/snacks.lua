@@ -19,12 +19,10 @@ return {
         { section = "startup" },
       },
     },
-    git = { enabled = true },
     input = { enabled = true },
     lazygit = { enabled = true },
     notifier = { enabled = true },
     picker = { enabled = true },
-    statuscolumn = { enabled = true },
   },
   keys = {
     { "<leader>a",       function() Snacks.dashboard() end,                                      desc = "Dashboard" },
@@ -68,5 +66,21 @@ return {
     { "gy",              function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto T[y]pe Definition" },
     { "<leader>ls",      function() Snacks.picker.lsp_symbols() end,                             desc = "LSP Symbols" },
     { "<leader>lS",      function() Snacks.picker.lsp_workspace_symbols() end,                   desc = "LSP Workspace Symbols" },
-  }
+  },
+  init = function()
+    -- LSP Progress notification
+    vim.api.nvim_create_autocmd("LspProgress", {
+      callback = function(ev)
+        local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+        vim.notify(vim.lsp.status(), "info", {
+          id = "lsp_progress",
+          title = "LSP Progress",
+          opts = function(notif)
+            notif.icon = ev.data.params.value.kind == "end" and " "
+                or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+          end,
+        })
+      end,
+    })
+  end,
 }
