@@ -6,7 +6,6 @@ return {
     bigfile = { enabled = true },
     dashboard = {
       enabled = true,
-
       sections = {
         {
           section = "terminal",
@@ -20,29 +19,11 @@ return {
         { section = "startup" },
       },
     },
-    explorer = { enabled = true },
     git = { enabled = true },
     input = { enabled = true },
     lazygit = { enabled = true },
     notifier = { enabled = true },
-    picker = {
-      enabled = true,
-      sources = {
-        explorer = {
-          auto_close = true,
-          layout = { preset = "ivy", preview = true },
-          matcher = { fuzzy = false },
-          win = {
-            list = {
-              wo = {
-                number = true,
-                relativenumber = true,
-              },
-            },
-          },
-        },
-      },
-    },
+    picker = { enabled = true },
     statuscolumn = { enabled = true },
   },
   keys = {
@@ -54,13 +35,12 @@ return {
     { "<leader>wd",      function() Snacks.words.disable() end,                                  desc = "Disable Words" },
     { "<leader>wj",      function() Snacks.words.jump() end,                                     desc = "Jump Words" },
 
-    -- Top Pickers & Explorer
+    -- Top Pickers
     { "<leader><space>", function() Snacks.picker.smart() end,                                   desc = "Smart Find Files" },
     { "<leader>,",       function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
     { "<leader>/",       function() Snacks.picker.grep() end,                                    desc = "Grep" },
     { "<leader>:",       function() Snacks.picker.command_history() end,                         desc = "Command History" },
     { "<leader>n",       function() Snacks.picker.notifications() end,                           desc = "Notification History" },
-    { "<leader>e",       function() Snacks.explorer() end,                                       desc = "File Explorer" },
 
     -- find
     { "<leader>fb",      function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
