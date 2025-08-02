@@ -32,7 +32,10 @@ local options = {
   scrolloff = 8,                           -- Minimal number of screen lines to keep above and below the cursor.
   sidescrolloff = 8,                       -- side scroll characters
   shortmess = "c",                         -- don't give |ins-completion-menu| messages to avoid the hit enter messages
-  mouse = "",
+  mouse = "",                              -- Disable mouse support
+  foldmethod = "expr",                     -- Use treesitter for folding
+  foldexpr = "nvim_treesitter#foldexpr()", -- Use treesitter for folding
+  foldlevelstart = 99,                     -- Using treesitter for folding, so we want to start with all folds open
 }
 
 

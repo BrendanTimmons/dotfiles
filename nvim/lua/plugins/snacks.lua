@@ -34,7 +34,7 @@ return {
     { "<leader>n",       function() Snacks.picker.notifications() end,                           desc = "Notification History" },
 
     -- find
-    { "<leader>fc",      function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
+    { "<leader>C",       function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
     { "<C-P>",           function() Snacks.picker.files() end,                                   desc = "Find Files" },
 
     -- git

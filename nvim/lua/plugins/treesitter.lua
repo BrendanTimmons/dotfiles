@@ -1,20 +1,21 @@
 local M = {
   "nvim-treesitter/nvim-treesitter",
+  branch = 'master',
+  lazy = false,
   build = ":TSUpdate",
-  event = "BufReadPost",
 }
 
 function M.config()
   require("nvim-treesitter.configs").setup({
-    ensure_installed = "all",
-    sync_install = false,
-    ignore_install = { "phpdoc" }, -- List of parsers to ignore installing
     highlight = {
-      enable = true, -- false will disable the whole extension
-      disable = { "" }, -- list of language that will be disabled
-      additional_vim_regex_highlighting = false,
+      enable = true,
     },
-    indent = { enable = true, disable = { "yaml" } },
+    indent = {
+      enable = true,
+    },
+    incremental_selection = {
+      enable = false,
+    },
   })
 end
 
