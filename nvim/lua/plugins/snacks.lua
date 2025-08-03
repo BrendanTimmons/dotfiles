@@ -6,14 +6,24 @@ return {
     bigfile = { enabled = true },
     dashboard = {
       enabled = true,
+      width = 60,
       sections = {
         {
           section = "terminal",
           cmd =
-          "chafa ~/.config/wall.png --probe off --format symbols --symbols vhalf --size 60x24; sleep .1",
+          "chafa ~/.config/wall.png --probe off --format symbols --symbols vhalf --size 24x12; sleep .1",
           height = 12,
-          width = 60,
-          padding = 1
+          width = 24,
+          padding = 1,
+          indent = 18
+        },
+        {
+          section = "terminal",
+          cmd = "echo 'Klanq puff at you?'",
+          height = 1,
+          padding = 1,
+          width = 24,
+          indent = 18
         },
         { section = "keys",   gap = 1, padding = 1 },
         { section = "startup" },
