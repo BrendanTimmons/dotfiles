@@ -19,7 +19,7 @@ return {
         },
         {
           section = "terminal",
-          cmd = "echo 'Klanq puff at you?'",
+          cmd = "echo '\x1b[33mKlanq puff at you?'",
           height = 1,
           padding = 1,
           width = 24,
