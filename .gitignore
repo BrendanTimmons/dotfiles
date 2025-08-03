@@ -1,6 +1,5 @@
 # Ignore everything by default.
 *
-.DS_Store
 
 !git
 !git/**
@@ -8,8 +7,7 @@
 !nvim
 !nvim/**
 
-!thefuck
-!thefuck/**
+!ghostty
+!ghostty/**
 
-!wezterm
-!wezterm/**
+.DS_Store

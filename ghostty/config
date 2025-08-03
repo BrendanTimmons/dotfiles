@@ -1,0 +1,16 @@
+theme = resheph.conf
+font-family = "FiraCode Nerd Font"
+font-size = 16 
+background-opacity = 0.95
+background-blur = true
+macos-icon = holographic
+
+# hide titlebar stuff
+macos-titlebar-proxy-icon = hidden
+shell-integration-features = no-title
+title = " "
+macos-titlebar-style = hidden
+
+# shaders
+custom-shader = "~/.config/ghostty/shaders/cursor_blaze_tapered.glsl"
+custom-shader = "~/.config/ghostty/shaders/cursor_smear.glsl"
