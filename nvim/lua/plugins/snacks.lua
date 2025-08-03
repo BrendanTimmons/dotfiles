@@ -10,8 +10,8 @@ return {
         {
           section = "terminal",
           cmd =
-          "chafa ~/.config/wall.jpg --probe off --format symbols --symbols vhalf --size 60; sleep .1",
-          height = 20,
+          "chafa ~/.config/wall.png --probe off --format symbols --symbols vhalf --size 60x24; sleep .1",
+          height = 12,
           width = 60,
           padding = 1
         },
