@@ -10,6 +10,9 @@
 !ghostty
 !ghostty/**
 
+!tmux
+!tmux/**
+
 !wall.png
 
 .DS_Store
