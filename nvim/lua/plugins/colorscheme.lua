@@ -45,7 +45,7 @@ function M.config()
     auto_integrations = true,
   })
 
-  vim.cmd.colorscheme "catppuccin"
+  vim.cmd.colorscheme "resheph"
 end
 
 return M
