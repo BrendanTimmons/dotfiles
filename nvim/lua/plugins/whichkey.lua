@@ -74,9 +74,9 @@ function M.config()
 
   local mappings = {
     { "<leader>c", group = "CodeCompanion" },
-    { "<leader>w", group = "Words" },
     { "<leader>s", group = "Search" },
     { "<leader>g", group = "Git" },
+    { "<leader>h", group = "Harpoon" },
     {
       "<leader>l",
       group = "LSP",
