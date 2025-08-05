@@ -22,7 +22,7 @@ function M.config()
         strategy = "chat",
         description = "Get some special advice from an LLM",
         opts = {
-          mapping = "<LocalLeader>ce",
+          mapping = "<C-C>",
           modes = { "v" },
           short_name = "expert",
           auto_submit = true,

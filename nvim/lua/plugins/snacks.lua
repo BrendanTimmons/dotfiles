@@ -65,12 +65,13 @@ return {
     -- search
     { "<leader>sh",      function() Snacks.picker.help() end,                                    desc = "Help Pages" },
     { "<leader>sm",      function() Snacks.picker.marks() end,                                   desc = "Marks" },
-    { "<leader>sp",      function() Snacks.picker.lazy() end,                                    desc = "Search for Plugin Spec" },
+    { "<leader>sp",      function() Snacks.picker.projects() end,                                desc = "Projects" },
+    { "<leader>sl",      function() Snacks.picker.lazy() end,                                    desc = "Search for Lazy Plugin Spec" },
 
     -- LSP
     { "gd",              function() Snacks.picker.lsp_definitions() end,                         desc = "Goto Definition" },
     { "gD",              function() Snacks.picker.lsp_declarations() end,                        desc = "Goto Declaration" },
-    { "gr",              function() Snacks.picker.lsp_references() end,                          desc = "References",            nowait = true },
+    { "gr",              function() Snacks.picker.lsp_references() end,                          desc = "References",                 nowait = true },
     { "gI",              function() Snacks.picker.lsp_implementations() end,                     desc = "Goto Implementation" },
     { "gy",              function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto T[y]pe Definition" },
     { "<leader>ls",      function() Snacks.picker.lsp_symbols() end,                             desc = "LSP Symbols" },

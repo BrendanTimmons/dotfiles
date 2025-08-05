@@ -103,7 +103,6 @@ function M.config()
         vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
         -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
         vim_item.menu = ({
-          copilot = "[Copilot]",
           nvim_lsp = "[LSP]",
           nvim_lua = "[NVIM_LUA]",
           path = "[Path]",
@@ -112,7 +111,6 @@ function M.config()
       end,
     },
     sources = {
-      { name = "copilot" },
       { name = "nvim_lsp" },
       { name = "nvim_lua" },
       { name = "path" },
@@ -124,8 +122,6 @@ function M.config()
     sorting = {
       priority_weight = 2,
       comparators = {
-        require("copilot_cmp.comparators").prioritize,
-
         -- Below is the default comparitor list and order for nvim-cmp
         cmp.config.compare.offset,
         -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
