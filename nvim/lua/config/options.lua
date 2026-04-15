@@ -36,6 +36,7 @@ local options = {
   foldmethod = "expr",                     -- Use treesitter for folding
   foldexpr = "nvim_treesitter#foldexpr()", -- Use treesitter for folding
   foldlevelstart = 99,                     -- Using treesitter for folding, so we want to start with all folds open
+  winborder = "rounded"
 }
 
 
