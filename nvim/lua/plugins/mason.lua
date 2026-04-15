@@ -16,7 +16,8 @@ return {
       "yamlls",
       "eslint",
       "tailwindcss",
-      "spectral"
+      "spectral",
+      "solargraph"
     }
 
     require("plugins.lsp.handlers").setup()

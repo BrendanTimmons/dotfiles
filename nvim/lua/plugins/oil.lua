@@ -5,6 +5,9 @@ local M = {
       padding = 5,
       max_width = 0.8
     },
+    view_options = {
+      show_hidden = true
+    },
   },
   dependencies = { "nvim-tree/nvim-web-devicons" },
   keys = {
