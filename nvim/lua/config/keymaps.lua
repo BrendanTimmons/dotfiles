@@ -1,5 +1,6 @@
 local opts = { noremap = true, silent = true }
 
+
 -- shorter function name
 local keymap = vim.api.nvim_set_keymap
 
