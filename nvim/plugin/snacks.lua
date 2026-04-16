@@ -6,24 +6,24 @@ require("snacks").setup({
     enabled = true,
     width = 60,
     sections = {
-      {
-        section = "terminal",
-        cmd =
-        "chafa ~/.config/wall.png --probe off --format symbols --symbols vhalf --size 24x12; sleep .1",
-        height = 12,
-        width = 24,
-        padding = 1,
-        indent = 18
-      },
-      {
-        section = "terminal",
-        cmd = "echo '\x1b[33mKlanq puff at you?'",
-        height = 1,
-        padding = 1,
-        width = 24,
-        indent = 18
-      },
-      { section = "keys",   gap = 1, padding = 1 },
+      -- {
+      --   section = "terminal",
+      --   cmd =
+      --   "chafa ~/.config/wall.png --probe off --format symbols --symbols vhalf --size 24x12; sleep .1",
+      --   height = 12,
+      --   width = 24,
+      --   padding = 1,
+      --   indent = 18
+      -- },
+      -- {
+      --   section = "terminal",
+      --   cmd = "echo '\x1b[33mKlanq puff at you?'",
+      --   height = 1,
+      --   padding = 1,
+      --   width = 24,
+      --   indent = 18
+      -- },
+      { section = "keys", gap = 1, padding = 1 },
     },
   },
   input = { enabled = true },
@@ -41,7 +41,8 @@ vim.keymap.set("n", "<leader>,", function() Snacks.picker.buffers() end, { desc 
 vim.keymap.set("n", "<leader>n", function() Snacks.picker.notifications() end, { desc = "Notification History" })
 
 -- find
-vim.keymap.set("n", "<leader>C", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, { desc = "Find Config File" })
+vim.keymap.set("n", "<leader>C", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end,
+  { desc = "Find Config File" })
 vim.keymap.set("n", "<C-P>", function() Snacks.picker.files() end, { desc = "Find Files" })
 
 -- git
@@ -73,7 +74,8 @@ vim.keymap.set("n", "gr", function() Snacks.picker.lsp_references() end, { desc 
 vim.keymap.set("n", "gI", function() Snacks.picker.lsp_implementations() end, { desc = "Goto Implementation" })
 vim.keymap.set("n", "gy", function() Snacks.picker.lsp_type_definitions() end, { desc = "Goto T[y]pe Definition" })
 vim.keymap.set("n", "<leader>ls", function() Snacks.picker.lsp_symbols() end, { desc = "LSP Symbols" })
-vim.keymap.set("n", "<leader>lS", function() Snacks.picker.lsp_workspace_symbols() end, { desc = "LSP Workspace Symbols" })
+vim.keymap.set("n", "<leader>lS", function() Snacks.picker.lsp_workspace_symbols() end,
+  { desc = "LSP Workspace Symbols" })
 
 -- LSP Progress notification
 vim.api.nvim_create_autocmd("LspProgress", {
