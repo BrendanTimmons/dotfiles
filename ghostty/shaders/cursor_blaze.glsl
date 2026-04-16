@@ -68,7 +68,10 @@ vec4 saturate(vec4 color, float factor) {
 // const vec4 TRAIL_COLOR = vec4(1.0, 0.725, 0.161, 1.0);
 
 // mauve
-const vec4 TRAIL_COLOR = vec4(0.796, 0.651, 0.969, 1.0);
+// const vec4 TRAIL_COLOR = vec4(0.796, 0.651, 0.969, 1.0);
+
+// nvg
+const vec4 TRAIL_COLOR = vec4(0.565, 0.847, 0.408, 1.0);
 
 // peach
 // const vec4 TRAIL_COLOR = vec4(0.98, 0.702, 0.529, 1.0);
@@ -76,8 +79,8 @@ const vec4 TRAIL_COLOR = vec4(0.796, 0.651, 0.969, 1.0);
 // original
 // const vec4 TRAIL_COLOR_ACCENT = vec4(1.0, 0., 0., 1.0);
 
-// mauve
-const vec4 TRAIL_COLOR_ACCENT = vec4(0.796, 0.651, 0.969, 1.0);
+// resheph
+// const vec4 TRAIL_COLOR_ACCENT = vec4(0.796, 0.651, 0.969, 1.0);
 const float DURATION = 0.1; //IN SECONDS
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
