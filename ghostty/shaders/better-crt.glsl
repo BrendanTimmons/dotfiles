@@ -46,7 +46,7 @@
 // How visible the scan line effect is
 // NOTE: Technically these are not scan lines, but rather the lack of them
 // [0, 1]
-#define SCAN_LINES_STRENGTH 0.20
+#define SCAN_LINES_STRENGTH 0.30
 // How bright the spaces between the lines are
 // [0, 1]
 #define SCAN_LINES_VARIANCE 1
@@ -56,7 +56,7 @@
 
 // How visible the aperture grille is
 // x \in R : x >= 0
-#define APERTURE_GRILLE_STRENGTH 0.3
+#define APERTURE_GRILLE_STRENGTH 0.2
 // Pixels per aperture grille
 // x \in R : x > 0
 #define APERTURE_GRILLE_PERIOD 3.0
