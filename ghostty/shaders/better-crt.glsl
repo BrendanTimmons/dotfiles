@@ -23,7 +23,7 @@
 
 // How much the ghost images are spread out
 // x \in R : x >= 0
-#define GHOSTING_SPREAD 0.75
+#define GHOSTING_SPREAD 0.1
 // How visible ghost images are
 // x \in R : x >= 0
 #define GHOSTING_STRENGTH 0.5
@@ -46,31 +46,31 @@
 // How visible the scan line effect is
 // NOTE: Technically these are not scan lines, but rather the lack of them
 // [0, 1]
-#define SCAN_LINES_STRENGTH 0.25
+#define SCAN_LINES_STRENGTH 0.15
 // How bright the spaces between the lines are
 // [0, 1]
-#define SCAN_LINES_VARIANCE 1
+#define SCAN_LINES_VARIANCE 0.8 
 // Pixels per scan line effect
 // x \in R : x > 0
 #define SCAN_LINES_PERIOD 5.0
 
 // How visible the aperture grille is
 // x \in R : x >= 0
-#define APERTURE_GRILLE_STRENGTH 0.2
+#define APERTURE_GRILLE_STRENGTH 0.15
 // Pixels per aperture grille
 // x \in R : x > 0
 #define APERTURE_GRILLE_PERIOD 3.0
 
 // How much the screen flickers
 // x \in R : x >= 0
-#define FLICKER_STRENGTH 0.005
+#define FLICKER_STRENGTH 0.000
 // How fast the screen flickers
 // x \in R : x > 0
 #define FLICKER_FREQUENCY 15.0
 
 // How much noise is added to filled areas
 // [0, 1]
-#define NOISE_CONTENT_STRENGTH 0.04
+#define NOISE_CONTENT_STRENGTH 0.00
 // How much noise is added everywhere
 // [0, 1]
 #define NOISE_UNIFORM_STRENGTH 0.25
