@@ -30,14 +30,14 @@
 
 // How much of the non-linearly darkened colors are mixed in
 // [0, 1]
-#define DARKEN_MIX 0.4
+#define DARKEN_MIX 0.3
 
 // How far in the vignette spreads
 // x \in R : x >= 0
-#define VIGNETTE_SPREAD 0.4
+#define VIGNETTE_SPREAD 0.3
 // How bright the vignette is
 // x \in R : x >= 0
-#define VIGNETTE_BRIGHTNESS 17.0
+#define VIGNETTE_BRIGHTNESS 10.0
 
 // Tint all colors
 // [0, 1]^3
@@ -46,7 +46,7 @@
 // How visible the scan line effect is
 // NOTE: Technically these are not scan lines, but rather the lack of them
 // [0, 1]
-#define SCAN_LINES_STRENGTH 0.30
+#define SCAN_LINES_STRENGTH 0.25
 // How bright the spaces between the lines are
 // [0, 1]
 #define SCAN_LINES_VARIANCE 1
@@ -70,7 +70,7 @@
 
 // How much noise is added to filled areas
 // [0, 1]
-#define NOISE_CONTENT_STRENGTH 0.05
+#define NOISE_CONTENT_STRENGTH 0.04
 // How much noise is added everywhere
 // [0, 1]
 #define NOISE_UNIFORM_STRENGTH 0.25
