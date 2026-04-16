@@ -30,14 +30,14 @@
 
 // How much of the non-linearly darkened colors are mixed in
 // [0, 1]
-#define DARKEN_MIX 0.3
+#define DARKEN_MIX 0.4
 
 // How far in the vignette spreads
 // x \in R : x >= 0
 #define VIGNETTE_SPREAD 0.4
 // How bright the vignette is
 // x \in R : x >= 0
-#define VIGNETTE_BRIGHTNESS 16.0
+#define VIGNETTE_BRIGHTNESS 17.0
 
 // Tint all colors
 // [0, 1]^3
