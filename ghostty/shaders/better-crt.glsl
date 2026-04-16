@@ -26,11 +26,11 @@
 #define GHOSTING_SPREAD 0.75
 // How visible ghost images are
 // x \in R : x >= 0
-#define GHOSTING_STRENGTH 0.2
+#define GHOSTING_STRENGTH 0.5
 
 // How much of the non-linearly darkened colors are mixed in
 // [0, 1]
-#define DARKEN_MIX 0.4
+#define DARKEN_MIX 0.3
 
 // How far in the vignette spreads
 // x \in R : x >= 0
@@ -49,7 +49,7 @@
 #define SCAN_LINES_STRENGTH 0.20
 // How bright the spaces between the lines are
 // [0, 1]
-#define SCAN_LINES_VARIANCE 0.96
+#define SCAN_LINES_VARIANCE 1
 // Pixels per scan line effect
 // x \in R : x > 0
 #define SCAN_LINES_PERIOD 5.0
@@ -63,24 +63,24 @@
 
 // How much the screen flickers
 // x \in R : x >= 0
-#define FLICKER_STRENGTH 0.00
+#define FLICKER_STRENGTH 0.005
 // How fast the screen flickers
 // x \in R : x > 0
 #define FLICKER_FREQUENCY 15.0
 
 // How much noise is added to filled areas
 // [0, 1]
-#define NOISE_CONTENT_STRENGTH 0.00
+#define NOISE_CONTENT_STRENGTH 0.05
 // How much noise is added everywhere
 // [0, 1]
-#define NOISE_UNIFORM_STRENGTH 0.1
+#define NOISE_UNIFORM_STRENGTH 0.25
 
 // How big the bloom is
 // x \in R : x >= 0
 #define BLOOM_SPREAD 4.0
 // How visible the bloom is
 // [0, 1]
-#define BLOOM_STRENGTH 0.006
+#define BLOOM_STRENGTH 0.01
 
 // Backgrond opacity
 // [0, 1]
