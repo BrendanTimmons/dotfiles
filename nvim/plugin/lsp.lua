@@ -67,6 +67,8 @@ vim.lsp.inlay_hint.enable()
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local bufnr = args.buf
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+
     local map = function(mode, lhs, rhs, desc)
       vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
     end
@@ -75,5 +77,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('n', '<C-k>', function() vim.lsp.buf.signature_help({border = 'rounded'}) end, 'Signature Help')
     map('n', '[d', function() vim.diagnostic.jump({ border = "rounded", count = -1 }) end, 'Previous Diagnostic')
     map('n', ']d', function() vim.diagnostic.jump({ border = "rounded", count = 1 }) end, 'Next Diagnostic')
+
+    -- ESLint auto-fix on save
+    if client and client.name == "eslint" then
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.code_action({
+            context = { only = { "source.fixAll.eslint" }, diagnostics = {} },
+            apply = true,
+          })
+        end,
+      })
+    end
   end,
 })
