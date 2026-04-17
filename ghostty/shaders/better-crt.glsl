@@ -34,10 +34,10 @@
 
 // How far in the vignette spreads
 // x \in R : x >= 0
-#define VIGNETTE_SPREAD 0.3
+#define VIGNETTE_SPREAD 0.2
 // How bright the vignette is
 // x \in R : x >= 0
-#define VIGNETTE_BRIGHTNESS 10.0
+#define VIGNETTE_BRIGHTNESS 6
 
 // Tint all colors
 // [0, 1]^3
