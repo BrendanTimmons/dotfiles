@@ -34,7 +34,7 @@
 
 // How far in the vignette spreads
 // x \in R : x >= 0
-#define VIGNETTE_SPREAD 0.2
+#define VIGNETTE_SPREAD 0.225
 // How bright the vignette is
 // x \in R : x >= 0
 #define VIGNETTE_BRIGHTNESS 6
